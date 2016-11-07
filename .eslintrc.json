@@ -1,0 +1,21 @@
+{
+  "extends": "bobbiebarker",
+  "globals": {
+    "expect": true,
+    "sinon": true
+  },
+  "rules": {
+    "max-len": [2, {
+      "code": 120,
+      "ignoreComments": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreTrailingComments": true
+    }],
+    "id-length": [2, {
+      "min": 3,
+      "max": 35,
+      "exceptions": ["a", "b", "qs", "_"]
+      }]
+  }
+}
