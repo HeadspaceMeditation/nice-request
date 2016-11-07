@@ -48,7 +48,7 @@ const extendOptions = options => Object.assign(options, {
 });
 
 /**
- * Makes service to service requests to other gamma services
+ * Makes service to service requests to other services
  * @param {NICERequestOptions} options - details to setup headers and make the http request
  * @return {Promise.<object>} the response body from the service we make the call to
  */

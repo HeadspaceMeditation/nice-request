@@ -16,7 +16,7 @@ describe('nice-request', function() {
     loggerStub = {
       info: sinon.spy()
     };
-    projectTag = 'test-env.gamma-test';
+    projectTag = 'test-env.nice-test';
 
     niceReq.setup(loggerStub, projectTag);
   });

@@ -16,8 +16,8 @@ npm install nice-request --save
 
 The setup method should be invoked when the express server is initialized with these arguments:
 
-* `logger`: a object with .info() function from gamma-logger
-* `projectTag`: a string used for constructing the metrics tag (ex. shared-dev.gamma-payment)
+* `logger`: a object with .info() function from logger
+* `projectTag`: a string used for constructing the metrics tag (ex. dev.monto-user)
 
 ```javascript
 
@@ -67,4 +67,4 @@ The niceRequest.request(options) function is implemented to return the response 
 
 #### Timeouts
 
-Nice requests will timeout after 25 seconds if no response is sent back before that timeframe.
+Nice requests will timeout by default after 25 seconds or at the specified time in the requestOptions object if no response is sent back before that timeframe.

@@ -14,7 +14,7 @@ describe('nice-request', function() {
     loggerStub = {
       info: sinon.spy()
     };
-    projectTagStub = 'test-env.gamma-test';
+    projectTagStub = 'test-env.nice-test';
 
     makeRequestResults = {a: 1};
     makeRequestStub = sinon.stub().resolves(makeRequestResults);
