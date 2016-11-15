@@ -70,6 +70,11 @@ describe('nice-request/make-request/index', function() {
     });
   });
 
+  it('does not call logger when none is supplied', function() {
+    optionsStub.log = null;
+    expect(makeRequest(optionsStub)).to.be.fulfilled;
+  });
+
   it('catches error and build a new one from it', function() {
     const reason = new Error('cause');
     rpStub.rejects(reason);

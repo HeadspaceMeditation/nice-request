@@ -36,6 +36,12 @@ describe('nice-request/make-request/log-request-options', function() {
       }});
   });
 
+  it('does not call the logger when none is supplied', function() {
+    expect(function() {
+      logRequestOptions(null, optionsStub, requestOptionsStub);
+    }).to.not.throw(TypeError);
+  });
+
   it('logs headers if available', function() {
     logRequestOptions(loggerStub, optionsStub, requestOptionsStub);
     expect(loggerStub.info).to.have.been.calledWithExactly({

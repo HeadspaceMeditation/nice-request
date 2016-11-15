@@ -39,7 +39,7 @@ describe('nice-request', function() {
 
   context('request()', function() {
     beforeEach(function() {
-      niceReq.setup(loggerStub, projectTagStub);
+      niceReq.setup(projectTagStub, loggerStub);
     });
 
     it('is a function', function() {
@@ -48,14 +48,24 @@ describe('nice-request', function() {
 
     it('fulfills to makeRequest result', function() {
       return expect(niceReq.request(optionsStub))
-        .to.eventually.equal(makeRequestResults);
+      .to.eventually.equal(makeRequestResults);
     });
 
-    it('calls make the request including the setup values', function() {
+    it('calls makeRequest with the setup values', function() {
       niceReq.request(optionsStub);
       expect(makeRequestStub).to.have.been.calledWithExactly({
         method: 'POST',
         log: loggerStub,
+        projectTag: projectTagStub
+      });
+    });
+
+    it('calls makeRequest with the right values when a logger is not supplised', function() {
+      niceReq.setup(projectTagStub, null);
+      niceReq.request(optionsStub);
+      expect(makeRequestStub).to.have.been.calledWithExactly({
+        method: 'POST',
+        log: null,
         projectTag: projectTagStub
       });
     });

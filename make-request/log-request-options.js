@@ -1,5 +1,7 @@
 'use strict';
 
+const isNull = require('lodash/isNull');
+
 /**
  * Logs the request options adding useful metadata
  * @param {Logger} log Application logger instance
@@ -7,5 +9,8 @@
  * @param {object} requestOptions Request options object
  * @return {undefined}
  */
-module.exports = (log, options, requestOptions) =>
-  log.info({message: 'nice-request options', exception: requestOptions});
+module.exports = (log, options, requestOptions) => {
+  if (!isNull(log)) {
+    log.info({message: 'nice-request options', exception: requestOptions});
+  }
+};

@@ -2,7 +2,7 @@
 'use strict';
 const nock = require('nock');
 const NiceError = require('nice-http-error');
-const niceReq = require('./../nice-request');
+const niceReq = require('./nice-request');
 
 const SUCCESS = 200;
 const BAD_REQUEST = 400;
@@ -18,7 +18,7 @@ describe('nice-request', function() {
     };
     projectTag = 'test-env.nice-test';
 
-    niceReq.setup(loggerStub, projectTag);
+    niceReq.setup(projectTag, loggerStub);
   });
 
   context('request()', function() {
@@ -49,6 +49,23 @@ describe('nice-request', function() {
 
       const scope = nock('https://www.my-nice-test.com')
         .post('/unit-testing-rocks', options.body)
+        .reply(SUCCESS);
+
+      return (niceReq.request(options)).then(() => {
+        scope.done();
+      });
+    });
+
+    it('correctly sends formData', function() {
+      const options = {
+        url: 'https://www.my-nice-test.com/unit-testing-rocks',
+        metricTag: 'integration_test_request',
+        method: 'POST',
+        formData: {value: 'payload-values'}
+      };
+
+      const scope = nock('https://www.my-nice-test.com')
+        .post('/unit-testing-rocks')
         .reply(SUCCESS);
 
       return (niceReq.request(options)).then(() => {

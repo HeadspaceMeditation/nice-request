@@ -4,6 +4,8 @@ const getRequestOptions = require('./get-request-options');
 const buildError = require('./build-error');
 const buildTag = require('./build-tag');
 const retryRequest = require('./retry-request');
+const isNull = require('lodash/isNull');
+const isFunction = require('lodash/isFunction');
 
 const STATUS_OK = 200;
 
@@ -31,6 +33,8 @@ module.exports = options => {
     .finally(() => {
       const message = buildTag(options);
       const exception = `Execution Time: ${new Date() - start}, status: ${statusCode}`;
-      options.log.info({message, exception});
+      if (!isNull(options.log) && isFunction(options.log.info)) {
+        options.log.info({message, exception});
+      }
     });
 };

@@ -1,6 +1,6 @@
 {
   "name": "nice-request",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A library to help with http requests in nodeland.",
   "main": "nice-request.js",
   "scripts": {
@@ -45,7 +45,8 @@
     "bluebird": "^3.4.1",
     "lodash": "^4.16.6",
     "nice-http-error": "^1.0.0",
-    "request-promise": "^3.0.0"
+    "request-promise": "^4.1.1",
+    "request": "^2.78.0"
   },
   "engines": {
     "node": ">=4.0.0"

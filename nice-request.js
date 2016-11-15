@@ -16,11 +16,11 @@ let log = null;
 
 /**
  * Setup log and project tag
- * @param {Logger} logger - object with log utility functions
  * @param {string} tag - main project tag
+ * @param {Logger} logger - object with log utility functions
  */
-exports.setup = (logger, tag) => {
-  log = logger;
+exports.setup = (tag, logger) => {
+  log = logger || null;
   projectTag = tag;
 };
 

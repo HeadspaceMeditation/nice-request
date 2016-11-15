@@ -16,7 +16,7 @@ npm install nice-request --save
 
 The setup method should be invoked when the express server is initialized with these arguments:
 
-* `logger`: a object with .info() function from logger
+* `logger`: a object with .info() function for logging
 * `projectTag`: a string used for constructing the metrics tag (ex. dev.monto-user)
 
 ```javascript
@@ -49,7 +49,7 @@ Optional object properties:
 
   + headers: object - additional http headers specific to the request. most notably in the old code is the x-transaction header and x-gs-session header.
   + body: object - req data
-  + queryString: string - url query string
+  + queryString: object -
   + timeout: number - override timeout(ms). Default timeout is 25000 ms.
   + resolveWithFullResponse: boolean - true resolve with full response (including headers) instead of just body
   + rejectUnauthorized: boolean - ignore SSL certificate errors (i.e. self-signed certs)

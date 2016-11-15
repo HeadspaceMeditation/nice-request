@@ -31,6 +31,10 @@ module.exports = options => {
     Object.assign(additionalOptions, {qs: get(options, 'queryString')});
   }
 
+  if (has(options, 'formData')) {
+    Object.assign(additionalOptions, pick(options, 'formData'));
+  }
+
   const requestOptions = merge(baseOptions, additionalOptions);
 
   logRequestOptions(options.log, options, requestOptions);
