@@ -47,7 +47,7 @@ niceRequest.request({
 
 Optional object properties:
 
-  + headers: object - additional http headers specific to the request. most notably in the old code is the x-transaction header and x-gs-session header.
+  + headers: object - additional http headers specific to the request.
   + body: object - req data
   + queryString: object -
   + timeout: number - override timeout(ms). Default timeout is 25000 ms.

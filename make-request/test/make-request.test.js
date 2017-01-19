@@ -59,14 +59,14 @@ describe('nice-request/make-request/index', function() {
 
   it('calls the logger on success', function() {
     return makeRequest(optionsStub).then(() => {
-      expect(optionsStub.log.info).to.have.been.calledWith({message: 'tag', exception: sinon.match.string});
+      expect(optionsStub.log.info).to.have.been.calledWith('tag', sinon.match.object);
     });
   });
 
   it('stops the timer on error', function() {
     rpStub.rejects('error');
     return makeRequest(optionsStub).catch(() => {
-      expect(optionsStub.log.info).to.have.been.calledWith({message: 'tag', exception: sinon.match.string});
+      expect(optionsStub.log.info).to.have.been.calledWith('tag', sinon.match.object);
     });
   });
 

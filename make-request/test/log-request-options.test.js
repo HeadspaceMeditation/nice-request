@@ -11,7 +11,8 @@ describe('nice-request/make-request/log-request-options', function() {
     optionsStub = {
       url: 'https://www.my-nice-test.com/unit-testing-rocks',
       metricTag: 'test_request',
-      method: 'GET'
+      method: 'GET',
+      session: '1234'
     };
     requestOptionsStub = {
       url: 'https://www.my-nice-test.com/unit-testing-rocks',
@@ -28,28 +29,15 @@ describe('nice-request/make-request/log-request-options', function() {
 
   it('calls the logger with the proper data', function() {
     logRequestOptions(loggerStub, optionsStub, requestOptionsStub);
-    expect(loggerStub.info).to.have.been.calledWithExactly({
-      message: 'nice-request options',
-      exception: {
-        url: 'https://www.my-nice-test.com/unit-testing-rocks',
-        method: 'GET'
-      }});
+    expect(loggerStub.info).to.have.been.calledWithExactly('nice-request options', {
+      url: 'https://www.my-nice-test.com/unit-testing-rocks',
+      method: 'GET'
+    });
   });
 
   it('does not call the logger when none is supplied', function() {
     expect(function() {
       logRequestOptions(null, optionsStub, requestOptionsStub);
     }).to.not.throw(TypeError);
-  });
-
-  it('logs headers if available', function() {
-    logRequestOptions(loggerStub, optionsStub, requestOptionsStub);
-    expect(loggerStub.info).to.have.been.calledWithExactly({
-      message: 'nice-request options',
-      exception: {
-        url: 'https://www.my-nice-test.com/unit-testing-rocks',
-        method: 'GET'
-      }
-    });
   });
 });

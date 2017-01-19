@@ -11,6 +11,6 @@ const isNull = require('lodash/isNull');
  */
 module.exports = (log, options, requestOptions) => {
   if (!isNull(log)) {
-    log.info({message: 'nice-request options', exception: requestOptions});
+    log.info('nice-request options', requestOptions);
   }
 };

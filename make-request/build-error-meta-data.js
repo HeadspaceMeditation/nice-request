@@ -19,7 +19,7 @@ const buildTag = require('./build-tag');
 module.exports = (options, error) => {
   const metadata = {
     niceRequestTag: buildTag(options),
-    niceRequestOptions: _.omit(options, 'metricTag')
+    niceRequestOptions: _.omit(options, ['metricTag', 'log'])
   };
 
   const composedMetaData = _.isObject(error.error)

@@ -1,6 +1,6 @@
 {
   "name": "nice-request",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A library to help with http requests in nodeland.",
   "main": "nice-request.js",
   "scripts": {
@@ -39,14 +39,15 @@
     "sinon": "^1.17.4",
     "sinon-as-promised": "^3.0.1",
     "sinon-chai": "^2.8.0",
+    "testdouble": "^1.10.2",
     "yargs": "^4.8.1"
   },
   "dependencies": {
     "bluebird": "^3.4.1",
     "lodash": "^4.16.6",
     "nice-http-error": "^1.0.0",
-    "request-promise": "^4.1.1",
-    "request": "^2.78.0"
+    "request": "^2.78.0",
+    "request-promise": "^4.1.1"
   },
   "engines": {
     "node": ">=4.0.0"

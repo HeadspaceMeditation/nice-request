@@ -27,14 +27,13 @@ module.exports = options => {
   const start = new Date();
   return retryRequest(() => request(getRequestOptions(options)), options.errCond, options.maxTries)
     .catch(error => {
-      statusCode = error.statusCode;
-      throw buildError(options, error);
+      const builtError = buildError(options, error);
+      statusCode = builtError.status;
+      throw builtError;
     })
     .finally(() => {
-      const message = buildTag(options);
-      const exception = `Execution Time: ${new Date() - start}, status: ${statusCode}`;
       if (!isNull(options.log) && isFunction(options.log.info)) {
-        options.log.info({message, exception});
+        options.log.info(buildTag(options), {executionTime: `${new Date() - start}`, status: `${statusCode}`});
       }
     });
 };
