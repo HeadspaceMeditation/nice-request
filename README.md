@@ -26,7 +26,7 @@ const niceRequest = require('nice-request');
 
 const logger = new Logger();
 
-niceRequest.setup(logger, 'project tag');
+niceRequest.setup('project tag', logger);
 ```
 
 * ### request()
