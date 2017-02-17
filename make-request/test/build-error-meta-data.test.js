@@ -43,6 +43,7 @@ describe('nice-request/make-request/build-error-meta-data', function() {
   it('returns the results from set stack', function() {
     expect(buildErrorMetaData(optionsStub, errorStub)).to.equal(setStackResults);
     expect(setStackStub).to.have.been.calledWithExactly({
+      message: 'error cause',
       niceRequestTag: 'tag',
       niceRequestOptions: {
         url: 'https://www.my-nice-test.com/unit-testing-rocks',

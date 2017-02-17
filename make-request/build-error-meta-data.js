@@ -23,7 +23,7 @@ module.exports = (options, error) => {
   };
 
   const composedMetaData = _.isObject(error.error)
-    ? Object.assign(_.omit(error.error, 'message', 'code', 'detail'), metadata)
+    ? Object.assign(_.omit(error.error, 'code', 'detail'), metadata)
     : metadata;
 
   return setStack(composedMetaData, error);
