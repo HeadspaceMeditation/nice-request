@@ -20,7 +20,9 @@ module.exports = options => {
     'method',
     'rejectUnauthorized',
     'resolveWithFullResponse',
-    'url');
+    'url',
+    'gzip'
+  );
 
   const additionalOptions = {
     json: true,
