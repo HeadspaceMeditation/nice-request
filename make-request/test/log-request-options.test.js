@@ -31,7 +31,9 @@ describe('nice-request/make-request/log-request-options', function() {
     logRequestOptions(loggerStub, optionsStub, requestOptionsStub);
     expect(loggerStub.info).to.have.been.calledWithExactly('nice-request options', {
       url: 'https://www.my-nice-test.com/unit-testing-rocks',
-      method: 'GET'
+      method: 'GET',
+      metricTag: 'test_request',
+      session: '1234'
     });
   });
 

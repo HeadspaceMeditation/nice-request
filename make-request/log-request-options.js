@@ -11,6 +11,6 @@ const isNull = require('lodash/isNull');
  */
 module.exports = (log, options, requestOptions) => {
   if (!isNull(log)) {
-    log.info('nice-request options', requestOptions);
+    log.info('nice-request options', Object.assign({}, options, requestOptions));
   }
 };

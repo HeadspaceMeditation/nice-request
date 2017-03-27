@@ -33,7 +33,7 @@ module.exports = options => {
     })
     .finally(() => {
       if (!isNull(options.log) && isFunction(options.log.info)) {
-        options.log.info(buildTag(options), {executionTime: `${new Date() - start}`, status: `${statusCode}`});
+        options.log.info(buildTag(options), {executionTime: `${new Date() - start}ms`, status: `${statusCode}`});
       }
     });
 };

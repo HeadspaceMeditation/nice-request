@@ -1,6 +1,7 @@
 'use strict';
 const merge = require('lodash/merge');
 const pick = require('lodash/pick');
+const omit = require('lodash/omit');
 const get = require('lodash/get');
 const has = require('lodash/has');
 const logRequestOptions = require('./log-request-options');
@@ -39,7 +40,7 @@ module.exports = options => {
 
   const requestOptions = merge(baseOptions, additionalOptions);
 
-  logRequestOptions(options.log, options, requestOptions);
+  logRequestOptions(options.log, omit(options, ['log']), requestOptions);
 
   return requestOptions;
 };
