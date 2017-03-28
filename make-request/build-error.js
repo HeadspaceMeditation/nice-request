@@ -15,7 +15,7 @@ module.exports = (options, error) => {
 
   return NiceError.create(message, {
     detail: _.get(error, 'error.detail'),
-    status: error.statusCode,
+    statusCode: error.statusCode,
     code: _.get(error, 'error.code'),
     error: buildErrorMetaData(options, error)
   });

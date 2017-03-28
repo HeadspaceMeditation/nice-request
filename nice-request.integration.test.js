@@ -112,7 +112,7 @@ describe('nice-request', function() {
         scope.done();
         expect(err).to.be.instanceof(NiceError);
         expect(err).to.have.property('message', 'GET to https://www.my-nice-test.com/unit-testing-rocks failed: test error');
-        expect(err).to.have.property('status', BAD_REQUEST);
+        expect(err).to.have.property('statusCode', BAD_REQUEST);
       });
     });
 
@@ -133,7 +133,7 @@ describe('nice-request', function() {
         scope.done();
         expect(err).to.be.instanceof(NiceError);
         expect(err).to.have.property('message', `GET to https://www.my-nice-test.com/unit-testing-rocks failed: 400 - "plain text error message"`);
-        expect(err).to.have.property('status', BAD_REQUEST);
+        expect(err).to.have.property('statusCode', BAD_REQUEST);
       });
     });
 
@@ -154,7 +154,7 @@ describe('nice-request', function() {
         scope.done();
         expect(err).to.be.instanceof(NiceError);
         expect(err).to.have.property('message', 'GET to https://www.my-nice-test.com/unit-testing-rocks failed: Request Error');
-        expect(err).to.have.property('status', INTERNAL_SERVER_ERROR);
+        expect(err).to.have.property('statusCode', INTERNAL_SERVER_ERROR);
       });
     });
 
@@ -179,7 +179,7 @@ describe('nice-request', function() {
         scope.done();
         expect(err).to.be.instanceof(NiceError);
         expect(err).to.have.property('message', 'GET to https://www.my-nice-test.com/unit-testing-rocks failed: Request Error');
-        expect(err).to.have.property('status', INTERNAL_SERVER_ERROR);
+        expect(err).to.have.property('statusCode', INTERNAL_SERVER_ERROR);
       });
     });
 
@@ -203,7 +203,7 @@ describe('nice-request', function() {
         expect(err).to.be.instanceof(NiceError);
         expect(err).to.have.property('message', 'GET to https://www.my-nice-test.com/unit-testing-rocks failed: ESOCKETTIMEDOUT');
         expect(err).to.have.property('code', 'ESOCKETTIMEDOUT');
-        expect(err).to.have.property('status', INTERNAL_SERVER_ERROR);
+        expect(err).to.have.property('statusCode', INTERNAL_SERVER_ERROR);
       });
     });
   });

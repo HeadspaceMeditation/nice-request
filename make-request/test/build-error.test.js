@@ -50,7 +50,7 @@ describe('nice-request/make-request/build-error', function() {
       {
         detail: 'error detail',
         code: 'error-code',
-        status: 401,
+        statusCode: 401,
         error: buildErrorMetaDataResults
       }
     );
