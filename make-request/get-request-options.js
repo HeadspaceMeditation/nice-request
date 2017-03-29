@@ -21,7 +21,8 @@ module.exports = options => {
     'rejectUnauthorized',
     'resolveWithFullResponse',
     'url',
-    'gzip'
+    'gzip',
+    'metricTag'
   );
 
   const additionalOptions = {

@@ -32,6 +32,7 @@ describe('nice-request/make-request/get-request-options', function() {
       url: 'https://www.my-nice-test.com/unit-testing-rocks',
       method: 'GET',
       json: true,
+      metricTag: 'test_request',
       timeout: 1000,
       resolveWithFullResponse: true,
       rejectUnauthorized: true
@@ -45,6 +46,7 @@ describe('nice-request/make-request/get-request-options', function() {
       method: 'GET',
       json: true,
       timeout: 25000,
+      metricTag: 'test_request',
       resolveWithFullResponse: true,
       rejectUnauthorized: true
     });
@@ -61,6 +63,7 @@ describe('nice-request/make-request/get-request-options', function() {
       json: true,
       timeout: 1000,
       body: 'body',
+      metricTag: 'test_request',
       headers: 'headers',
       qs: 'querystring',
       resolveWithFullResponse: true,
@@ -77,6 +80,7 @@ describe('nice-request/make-request/get-request-options', function() {
       method: 'GET',
       json: true,
       timeout: 1000,
+      metricTag: 'test_request',
       formData: 'someFormData',
       headers: 'headers',
       resolveWithFullResponse: true,
