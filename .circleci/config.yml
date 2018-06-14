@@ -6,8 +6,6 @@ jobs:
       - image: headspace/hs-node:8.9 # primary container
         environment:
           NODE_ENV: test
-          TEST_FAIL_ON_ERROR: true
-          TSLINT_FAIL_ON_ERROR: true
     working_directory: ~/nice-request
     steps:
       - checkout
