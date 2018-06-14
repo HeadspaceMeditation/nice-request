@@ -33,7 +33,7 @@ jobs:
           path: coverage/
 
       - store_test_results:
-          path: test-output/
+          path: report/
 
       - add_ssh_keys
 
