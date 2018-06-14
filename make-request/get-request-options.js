@@ -22,11 +22,13 @@ module.exports = options => {
     'resolveWithFullResponse',
     'url',
     'gzip',
-    'metricTag'
+    'metricTag',
+    'encoding'
   );
 
   const additionalOptions = {
-    json: true,
+    // allow request-promise to return a buffer
+    json: baseOptions.encoding !== null,
     timeout: options.timeout || TIMEOUT
   };
 

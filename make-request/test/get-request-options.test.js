@@ -87,4 +87,36 @@ describe('nice-request/make-request/get-request-options', function() {
       rejectUnauthorized: true
     });
   });
+
+  it('sets formData when available', function() {
+    expect(getRequestOptions(Object.assign(optionsStub, {
+      formData: 'someFormData',
+      headers: 'headers'
+    }))).to.deep.equal({
+      url: 'https://www.my-nice-test.com/unit-testing-rocks',
+      method: 'GET',
+      json: true,
+      timeout: 1000,
+      metricTag: 'test_request',
+      formData: 'someFormData',
+      headers: 'headers',
+      resolveWithFullResponse: true,
+      rejectUnauthorized: true
+    });
+  });
+
+  it('sets the encoding', function() {
+    expect(getRequestOptions(Object.assign(optionsStub, {
+      encoding: null,
+    }))).to.deep.equal({
+      url: 'https://www.my-nice-test.com/unit-testing-rocks',
+      method: 'GET',
+      json: false,
+      encoding: null,
+      timeout: 1000,
+      metricTag: 'test_request',
+      resolveWithFullResponse: true,
+      rejectUnauthorized: true
+    });
+  });
 });
